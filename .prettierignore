@@ -1,0 +1,7 @@
+# 这里好像是放prettier忽略文件
+node_modules/*
+.gitignore
+pnpm-lock.yaml
+.prettierrc.json
+package.json
+readme.md
