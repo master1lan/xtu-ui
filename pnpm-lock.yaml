@@ -5,6 +5,7 @@ specifiers:
   html-webpack-plugin: ^5.5.0
   less: ^4.1.3
   less-loader: ^11.1.0
+  mini-css-extract-plugin: ^2.7.2
   prettier: ^2.8.1
   style-loader: ^3.3.1
   ts-loader: ^9.4.2
@@ -12,12 +13,15 @@ specifiers:
   webpack: ^5.75.0
   webpack-cli: ^5.0.1
   webpack-dev-server: ^4.11.1
+  webpack-merge: ^5.8.0
+  webpack-node-externals: ^3.0.0
 
 devDependencies:
   css-loader: 6.7.2_webpack@5.75.0
   html-webpack-plugin: 5.5.0_webpack@5.75.0
   less: 4.1.3
   less-loader: 11.1.0_less@4.1.3+webpack@5.75.0
+  mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   prettier: 2.8.1
   style-loader: 3.3.1_webpack@5.75.0
   ts-loader: 9.4.2_3fkjkrd3audxnith3e7fo4fnxi
@@ -25,6 +29,8 @@ devDependencies:
   webpack: 5.75.0_webpack-cli@5.0.1
   webpack-cli: 5.0.1_uaydpeuxkjjcxdbyfgk36cjdxi
   webpack-dev-server: 4.11.1_rjsyjcrmk25kqsjzwkvj3a2evq
+  webpack-merge: 5.8.0
+  webpack-node-externals: 3.0.0
 
 packages:
 
@@ -1569,6 +1575,16 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /mini-css-extract-plugin/2.7.2_webpack@5.75.0:
+    resolution: {integrity: sha512-EdlUizq13o0Pd+uCp+WO/JpkLvHRVGt97RqfeGhXqAcorYo1ypJSpkV+WDT0vY/kmh/p7wRdJNJtuyK540PXDw==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      schema-utils: 4.0.0
+      webpack: 5.75.0_webpack-cli@5.0.1
+    dev: true
+
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
     dev: true
@@ -2535,6 +2551,11 @@ packages:
     dependencies:
       clone-deep: 4.0.1
       wildcard: 2.0.0
+    dev: true
+
+  /webpack-node-externals/3.0.0:
+    resolution: {integrity: sha512-LnL6Z3GGDPht/AigwRh2dvL9PQPFQ8skEpVrWZXLWBYmqcaojHNN0onvHzie6rq7EWKrrBfPYqNEzTJgiwEQDQ==}
+    engines: {node: '>=6'}
     dev: true
 
   /webpack-sources/3.2.3:
