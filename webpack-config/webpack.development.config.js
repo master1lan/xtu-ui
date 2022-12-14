@@ -5,23 +5,22 @@ const template = require('./template.config');
 // @ts-ignore
 module.exports = merge(template, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'eval',
     devServer: {
         static: path.resolve(__dirname, '../test/dist'),
     },
     optimization: {
         moduleIds: 'deterministic',
-        runtimeChunk: 'single',
-        usedExports: true,
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendors',
-                    chunks: 'all',
-                },
-            },
-        },
+        removeAvailableModules: false,
+        removeEmptyChunks: false,
+        splitChunks: false,
+        minimize: false,
+        concatenateModules: false,
+        usedExports: false,
+    },
+    experiments: {
+        //类似vite的懒加载
+        lazyCompilation: true,
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -36,4 +35,7 @@ module.exports = merge(template, {
             cache: false,
         }),
     ],
+    watchOptions: {
+        ignored: /node_modules/,
+    },
 });

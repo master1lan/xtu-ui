@@ -15,6 +15,11 @@ module.exports = merge(template, {
             type: 'umd',
         },
     },
+    devtool: false,
+    optimization: {
+        usedExports: true,
+        minimize: true,
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: '测试页面',

@@ -1,4 +1,5 @@
 const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack_rentry_object = require('./tools');
 module.exports = {
     mode: 'development',
@@ -8,8 +9,16 @@ module.exports = {
         rules: [
             {
                 test: /\.ts?$/,
-                use: ['ts-loader'],
                 exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            // 设置为“仅编译”，关闭类型检查
+                            transpileOnly: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/i,
@@ -18,6 +27,7 @@ module.exports = {
             },
             {
                 test: /\.module\.(css|less)/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'css-loader',
@@ -36,4 +46,8 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    plugins: [
+        // fork 出子进程，专门用于执行类型检查
+        new ForkTsCheckerWebpackPlugin(),
+    ],
 };
