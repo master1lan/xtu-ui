@@ -44,7 +44,11 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.ts', '.js'],
+        alias: {
+            '@components': path.resolve(__dirname, '../src/components'),
+            '@utils': path.resolve(__dirname, '../src/utils'),
+        },
     },
     plugins: [
         // fork 出子进程，专门用于执行类型检查

@@ -3,6 +3,7 @@ class XyButtonGroup extends HTMLElement {
     constructor() {
         super();
         const shadowRoot = this.attachShadow({ mode: 'open' });
+        this.className = styles.locals.button;
         shadowRoot.innerHTML = `
         <style>${styles}</style>
         <button class=${styles.locals.button}>测试一下</button>

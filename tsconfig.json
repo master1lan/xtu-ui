@@ -1,10 +1,12 @@
 {
     "compilerOptions": {
+        "experimentalDecorators": true,
         /* Visit https://aka.ms/tsconfig to read more about this file */
         "baseUrl": ".",
         "paths": {
-            "@components/*": ["components/*"],
-            "@utils/*": ["utils/*"]
+            "@": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@utils/*": ["src/utils/*"]
         },
         /* Projects */
         // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
@@ -107,6 +109,6 @@
         // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
         "skipLibCheck": true /* Skip type checking all .d.ts files. */
     },
-    "include": ["components/**/*", "utils/**/*"],
+    "include": ["src/components/**/*", "src/utils/**/*"],
     "exclude": ["node_modules/**/*"]
 }

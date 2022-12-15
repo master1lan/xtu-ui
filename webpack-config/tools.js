@@ -29,13 +29,11 @@ function walkSync(currentDirPath, callback) {
 }
 
 const webpack_entry_object = {};
-walkSync(
-    path.resolve(__dirname, '../components'),
-    function (file_name, filePath, list) {
-        webpack_entry_object[file_name] = list.map((item) =>
-            path.resolve(filePath, item)
-        );
-    }
-);
+function walk_into_object(file_name, filePath, list) {
+    webpack_entry_object[file_name] = list.map((item) =>
+        path.resolve(filePath, item)
+    );
+}
+walkSync(path.resolve(__dirname, '../src/components'), walk_into_object);
+walkSync(path.resolve(__dirname, '../src/utils'), walk_into_object);
 module.exports = webpack_entry_object;
-// console.log(webpack_entry_object);

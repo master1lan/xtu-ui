@@ -1,7 +1,7 @@
 declare module '*.module.less' {
     const classes: {
         locals: { [key: string]: string };
-        use: ({ target }) => void;
+        toString: () => TemplateStringsArray;
         [key: string]: string;
     };
     export default classes;

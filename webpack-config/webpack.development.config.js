@@ -5,9 +5,14 @@ const template = require('./template.config');
 // @ts-ignore
 module.exports = merge(template, {
     mode: 'development',
-    devtool: 'eval',
+    devtool: 'inline-source-map',
     devServer: {
         static: path.resolve(__dirname, '../test/dist'),
+        hot: true,
+        watchFiles: [
+            path.resolve(__dirname, '../test/src/*'),
+            path.resolve(__dirname, '../src/**/*'),
+        ],
     },
     optimization: {
         moduleIds: 'deterministic',
@@ -20,7 +25,7 @@ module.exports = merge(template, {
     },
     experiments: {
         //类似vite的懒加载
-        lazyCompilation: true,
+        // lazyCompilation: true,
     },
     output: {
         filename: '[name].[contenthash].js',
