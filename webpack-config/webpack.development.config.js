@@ -25,7 +25,7 @@ module.exports = merge(template, {
     },
     experiments: {
         //类似vite的懒加载
-        // lazyCompilation: true,
+        lazyCompilation: true,
     },
     output: {
         filename: '[name].[contenthash].js',

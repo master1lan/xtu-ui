@@ -1,0 +1,26 @@
+@import '@utils/less/_tools';
+.button {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 4px 15px;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    word-spacing: 0px;
+    color: white;
+    @color: rgb(22, 119, 255);
+    background-color: @color;
+    background-image: none;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border-radius: 6px;
+    &:hover {
+        background-color: darken(@color, 20%);
+    }
+    &:active {
+        background-color: darken(@color, 40%);
+    }
+}

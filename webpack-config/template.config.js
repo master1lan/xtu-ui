@@ -21,9 +21,9 @@ module.exports = {
                 ],
             },
             {
-                test: /\.css$/i,
-                use: ['css-loader'],
-                exclude: /\.module\.css/,
+                test: /\.(css|less)$/i,
+                use: ['css-loader', 'less-loader'],
+                exclude: /\.module\.(css|less)/,
             },
             {
                 test: /\.module\.(css|less)/,
@@ -44,7 +44,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.less', '.css'],
         alias: {
             '@components': path.resolve(__dirname, '../src/components'),
             '@utils': path.resolve(__dirname, '../src/utils'),

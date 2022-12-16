@@ -1,0 +1,41 @@
+/*
+    将对象转换为对应的值，比如
+    input->{
+        margin:0;
+        width:100px;
+    }
+    output-> &+{
+        margin:0;
+        width:100px;
+    }
+*/
+#mapToProps(@maps:{}) {
+    each(@maps,{
+            @{key}:@value;
+        });
+}
+/*
+设置暗黑模式，使用方式如下：
+#dark-mode-set({
+    color:white
+})
+*/
+#dark-mode-set(@maps:{}) {
+    @media (prefers-color-scheme: dark) {
+        #mapToProps(@maps);
+    }
+}
+/*
+集成上面两个方法，使用方式如下
+#mode-order(
+    {
+        color:black;
+    },{
+        color:white;
+    }
+    )
+*/
+#mode-order(@lightMaps:{},@darkMaps:{}) {
+    #mapToProps(@lightMaps);
+    #dark-mode-set(@darkMaps);
+}
