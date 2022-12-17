@@ -1,11 +1,13 @@
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const template = require('./template.config');
+const resolve_webpack_entry = require('./tools');
 //@ts-ignore
 module.exports = merge(template, {
     mode: 'production',
+    devtool: 'inline-source-map',
+    entry: resolve_webpack_entry(['../src/components', '../src/utils'], true),
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, '../test/dist'),
@@ -15,7 +17,6 @@ module.exports = merge(template, {
             type: 'umd',
         },
     },
-    devtool: false,
     optimization: {
         usedExports: true,
         minimize: true,
@@ -26,5 +27,4 @@ module.exports = merge(template, {
             template: path.resolve(__dirname, '../test/src/index.html'),
         }),
     ],
-    externals: [nodeExternals()],
 });

@@ -1,14 +1,14 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const webpack_rentry_object = require('./tools');
+const resolve_webpack_entry = require('./tools');
 module.exports = {
     mode: 'development',
-    entry: webpack_rentry_object,
+    entry: resolve_webpack_entry(['../src/components', '../src/utils']),
     target: 'web',
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.(ts|js)?$/,
                 exclude: /node_modules/,
                 use: [
                     {
