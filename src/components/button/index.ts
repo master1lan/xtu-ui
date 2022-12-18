@@ -1,7 +1,6 @@
 import { LitElement, html } from 'lit';
 import { css, tag } from '@utils/core';
-import { property, state } from 'lit/decorators.js';
-import styles from './button.module.less';
+import styles from './button.less';
 @tag('button')
 export class ButtonComponent extends LitElement {
     // Define scoped styles right with your component, in plain CSS
@@ -10,18 +9,15 @@ export class ButtonComponent extends LitElement {
     /*property和state有什么区别？
     <xtu-button name="1" cnt="1"></xtu-button>
     上面的例子中，name可以接收到，但是cnt无法接收
-    */
     @property()
-    name?: string = 'World';
+    name: number = 0;
     @state()
     cnt = 0;
+    */
     // Render the UI as a function of component state
     render() {
-        return html`<button
-            @click=${() => this.cnt++}
-            class=${styles.locals.button}>
+        return html` <button class="button">
             <slot></slot>
-            ${this.cnt} ${this.name}
         </button>`;
     }
 }

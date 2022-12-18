@@ -37,7 +37,7 @@ module.exports = merge(template, {
         new HtmlWebpackPlugin({
             title: '测试页面',
             template: path.resolve(__dirname, '../test/src/index.html'),
-            cache: false,
+            cache: true,
         }),
     ],
     watchOptions: {

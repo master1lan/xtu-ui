@@ -22,19 +22,13 @@ module.exports = {
             },
             {
                 test: /\.(css|less)$/i,
-                use: ['css-loader', 'less-loader'],
-                exclude: /\.module\.(css|less)/,
-            },
-            {
-                test: /\.module\.(css|less)/,
-                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
                             modules: {
-                                localIdentName: '[local]_[hash:base64:5]',
+                                localIdentName: '[local]',
                             },
                         },
                     },
