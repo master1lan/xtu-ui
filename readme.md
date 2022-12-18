@@ -7,14 +7,17 @@
 - test文件夹用来测试组件，使用dev server开发
 
 # 技术选型
+
 - less with css module
 - typescript
 - webpack 打包
 - pnpm
-# 组件
-优先写比较简单的组件，比如button，input。
-# 组件编写规范
+  
+  # 组件
+  
+  优先写比较简单的组件，比如button，input。
+  
+  # 组件编写规范
 1. 在components文件夹下面新开文件夹，比如button。
 2. 样式和代码隔离，建议样式文件名为xxx.module.less
 3. 默认导出为同名组件，其他组件可自行导出。
-

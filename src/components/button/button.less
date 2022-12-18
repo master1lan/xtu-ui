@@ -2,6 +2,7 @@
 :host {
     display: inline-block;
 }
+
 .button {
     box-sizing: border-box;
     display: inline-block;
@@ -14,16 +15,32 @@
     word-spacing: 0px;
     color: white;
     @color: rgb(22, 119, 255);
-    background-color: @color;
+    --button-color: @color;
+    background-color: var(--button-color);
     background-image: none;
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     border-radius: 6px;
-    &:hover {
-        background-color: darken(@color, 20%);
-    }
     &:active {
-        background-color: darken(@color, 40%);
+        background-color: red;
+    }
+    &-success:extend(.button) {
+        background-color: red;
+    }
+    &-primary:extend(.button) {
+        background-color: green;
+    }
+    &-default:extend(.button) {
+        cursor: pointer;
+    }
+    &-danger:extend(.button) {
+        background-color: black;
+    }
+    &-warning:extend(.button) {
+        background-color: orange;
+    }
+    &[isDisabled='disabled'] {
+        cursor: not-allowed;
     }
 }

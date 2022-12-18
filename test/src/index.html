@@ -12,7 +12,7 @@
 <body>
     <!-- 直接在这里进行测试 -->
     <div>
-        <xtu-button name="1">
+        <xtu-button type="xxxx" disabled>
             saber
         </xtu-button>
         <xtu-button name="1">
@@ -25,6 +25,19 @@
             saber
         </xtu-button>
     </div>
+    <button onclick="changeHandler()">点击这里测试修改传入的参数</button>
+    <script>
+        let boolean_example = 0;
+        function changeHandler() {
+            boolean_example = !boolean_example;
+            Array.from(document.getElementsByTagName('xtu-button')).forEach((element) => {
+                // element.disabled = boolean_example;
+                // element.loading = !element.loading;
+                element.type = ['default', 'primary', 'success', 'danger', 'warning'].find(() => Math.random() < 0.5 ? true : false);
+            });
+        }
+
+    </script>
 </body>
 
 </html>
