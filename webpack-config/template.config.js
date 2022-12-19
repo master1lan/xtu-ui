@@ -25,12 +25,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            modules: {
-                                localIdentName: '[local]',
-                            },
-                        },
                     },
                     'less-loader',
                 ],

@@ -7,22 +7,54 @@
         <%= htmlWebpackPlugin.options.title %>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            /* --button-color: red; */
+        }
+    </style>
 </head>
 
 <body>
     <!-- 直接在这里进行测试 -->
     <div>
-        <xtu-button>
-            saber
+        <xtu-button block>
+            这里测试block的按钮
         </xtu-button>
+    </div>
+    <div>
+        <!-- 测试disabled和type -->
         <xtu-button>
-            <span>saber</span>
+            <span>这里测试内部有标签的按钮</span>
         </xtu-button>
-        <xtu-button>
-            saber
+        <xtu-button disabled>
+            这里测试被禁用的按钮
         </xtu-button>
-        <xtu-button>
-            saber
+        <xtu-button type="primary">
+            这里测试primary按钮
+        </xtu-button>
+        <xtu-button type="warning">
+            这里测试warning按钮
+        </xtu-button>
+    </div>
+    <div>
+        <!-- 测试加载 -->
+        <xtu-button loading="true">
+            这里测试loading按钮
+        </xtu-button>
+        <xtu-button loading="true" loadinginfo="加载中">
+            这里测试loadinginfo按钮
+        </xtu-button>
+    </div>
+    <div>
+        <!-- 测试shape -->
+        <xtu-button shape="square">
+            这里测试square按钮
+        </xtu-button>
+        <xtu-button shape="round">
+            这里测试round按钮
+        </xtu-button>
+        <xtu-button shape="circle">
+            这里测试circle按钮
         </xtu-button>
     </div>
     <button onclick="changeHandler()">点击这里测试修改传入的参数</button>

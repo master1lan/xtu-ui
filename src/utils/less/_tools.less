@@ -7,10 +7,10 @@
 //     width: 100px;
 // }
 
-#mapToProps(@maps:{}) {
-    each(@maps,{
-            @{key}:@value;
-        });
+#mapToProps(@maps: {}) {
+    each(@maps, {
+        @{key}:@value;
+    });
 }
 
 // 设置暗黑模式，使用方式如下：
@@ -18,7 +18,7 @@
 //     color:white
 // })
 
-#dark-mode-set(@maps:{}) {
+#dark-mode-set(@maps: {}) {
     @media (prefers-color-scheme: dark) {
         #mapToProps(@maps);
     }
@@ -33,7 +33,34 @@
 //     }
 //     )
 
-#mode-order(@lightMaps:{},@darkMaps:{}) {
+#mode-order(@lightMaps: {}
+
+    , @darkMaps: {}) {
     #mapToProps(@lightMaps);
     #dark-mode-set(@darkMaps);
+}
+
+
+//元素hover的属性定义
+#hover(@map: {}) {
+    :host(:not([disabled])) &:hover {
+        #mapToProps(@map);
+    }
+}
+
+//
+#host(@status: block, @maps: {}) {
+
+    //这里是vscode的错误
+    :host([@{status}]) {
+        #mapToProps(@maps);
+    }
+}
+
+#hostToclass(@status: block, @class: 'button', @maps: {}) {
+    :host([@{status}]) {
+        .@{class} {
+            #mapToProps(@maps);
+        }
+    }
 }

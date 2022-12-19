@@ -1,43 +1,66 @@
 @import '@utils/less/_tools';
-:host {
-    display: inline-block;
-}
+
+
+
+// 按钮内部文字大小
+@button-font-size: var(--button-font-size, 14px);
+// 按钮内部文字颜色
+@button-color: var(--button-color, #000);
+// 按钮背景颜色
+@button-bg-color: var(--button-bg-color, #fff);
+// 按钮内部左右内边距大小
+@button-hspacing: var(--button-hspacing, 15px);
+// 按钮内部边框圆角大小
+@button-border-radius: var(--button-border-radius, 8px);
+
 
 .button {
     box-sizing: border-box;
     display: inline-block;
-    margin: 4px;
-    padding: 4px 15px;
     position: relative;
-    font-size: 14px;
     text-align: center;
     white-space: nowrap;
-    word-spacing: 0px;
-    color: white;
-    @color: rgb(22, 119, 255);
-    --button-color: @color;
-    background-color: var(--button-color);
     background-image: none;
     outline: none;
-    border: 1px solid rgba(0, 0, 0, 0);
+    word-spacing: 0px;
+    border: none;
     cursor: pointer;
-    border-radius: 6px;
-    &:active {
-        background-color: red;
-    }
-    &-success {
-        background-color: red;
-    }
-    &-primary {
-        background-color: green;
-    }
-    &-default {
-        cursor: pointer;
-    }
-    &-danger {
-        background-color: black;
-    }
-    &-warning {
-        background-color: orange;
+    width: 100%;
+    padding: 4px @button-hspacing;
+    color: @button-color;
+    background-color: @button-bg-color;
+    font-size: @button-font-size;
+    border: 1px solid transparent;
+    border-radius: @button-border-radius;
+
+}
+
+
+:host {
+    display: inline-block;
+}
+
+#host(block, {
+    display: block;
+});
+
+#hostToclass(disabled, button, {
+    cursor: not-allowed;
+});
+
+:host( :not([type])),
+:host([type="default"]) {
+    .button {
+        border-color: #d9d9d9;
     }
 }
+
+#hostToclass(~(type="primary"), button, {
+    color:#fff;
+    background-color: #1677ff;
+});
+
+#hostToclass(~(type="warning"), button, {
+    background-color: #ff4d4f;
+    color:#fff;
+});

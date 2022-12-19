@@ -6,7 +6,7 @@ import { property } from 'lit/decorators.js';
 /**
  * type define
  */
-type Button_type = 'default' | 'primary' | 'success' | 'danger' | 'warning';
+type Button_type = 'default' | 'primary' | 'warning';
 type Button_size_type = 'small' | 'default' | 'large';
 type Button_iconDirection = 'before' | 'after';
 type Button_shape = 'square' | 'round' | 'circle';
@@ -45,20 +45,13 @@ export class ButtonComponent extends LitElement implements CButton {
     icondireciton: Button_iconDirection = 'before';
     @property()
     shape: Button_shape = 'round';
-    @property()
+    @property({ type: Boolean })
     loading: boolean = false;
-    @property()
+    @property({ type: String })
     loadinginfo: string = 'loading';
     // Render the UI as a function of component state
     render() {
-        return html` <button
-            class=${classname(
-                'button',
-                this.type,
-                this.disabled,
-                this.icondireciton,
-                this.shape
-            )}>
+        return html` <button class=${classname('button')}>
             ${getValue(
                 this.loading,
                 true,
