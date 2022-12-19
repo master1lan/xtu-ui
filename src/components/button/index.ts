@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { css, tag, classname } from '@utils/core';
+import { css, tag, classname, getValue } from '@utils/core';
 import styles from './button.less';
 import { property } from 'lit/decorators.js';
 
@@ -52,9 +52,19 @@ export class ButtonComponent extends LitElement implements CButton {
     // Render the UI as a function of component state
     render() {
         return html` <button
-            class=${classname('button', this.type)}
-            isDisabled=${this.disabled === '' ? `disabled` : `allow`}>
-            ${this.loading == true ? this.loadinginfo : html`<slot></slot>`}
+            class=${classname(
+                'button',
+                this.type,
+                this.disabled,
+                this.icondireciton,
+                this.shape
+            )}>
+            ${getValue(
+                this.loading,
+                true,
+                this.loadinginfo,
+                html`<slot></slot>`
+            )}
         </button>`;
     }
 }

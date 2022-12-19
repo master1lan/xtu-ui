@@ -16,13 +16,37 @@ export const tag =
     (classOrDescriptor: GetHocParameters<typeof customElement>) =>
         customElement(`${ui_name}-${tag_name}`)(classOrDescriptor);
 
+function _link_classname(per: string, after: string) {
+    return isEmpty(after) ? null : `${per}-${after}`;
+}
 /**
  * 封装class，注意所有的class应该都以-分割
+ * ```js
+ * classname('button','success') //`button button-success`
+ * classname('button','success','round') //`button button-success button-round`
+ * ```
+ *
  */
-export const classname = (default_name: string, active_after: string) => {
-    return `${default_name}
-    ${isEmpty(active_after) ? null : default_name + '-' + active_after}`;
+export const classname = (default_name: string, ...res_after: string[]) => {
+    return res_after.reduce(
+        (str, value) => `${str} ${_link_classname(default_name, value)}`,
+        default_name
+    );
 };
+/**
+ * 消灭三元判断符
+ */
+export function getValue<T>(
+    assertValue: T,
+    patternValue: T,
+    trueValue: unknown,
+    falseValue: unknown
+) {
+    if (assertValue === patternValue) {
+        return trueValue;
+    }
+    return falseValue;
+}
 
 /**
  *检查是否为空
