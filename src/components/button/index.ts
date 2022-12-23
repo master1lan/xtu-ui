@@ -14,14 +14,13 @@ interface CButton {
     type: Button_type;
     size: Button_size_type;
     disabled: boolean | string;
-    icon?: string;
     icondireciton: Button_iconDirection;
     shape: Button_shape;
     loading: boolean;
     loadinginfo: string;
 }
 @tag('button')
-export class ButtonComponent extends LitElement implements CButton {
+export class ButtonComponent extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css(styles);
     // Declare reactive properties
@@ -33,18 +32,6 @@ export class ButtonComponent extends LitElement implements CButton {
     @state()
     cnt = 0;
     */
-    @property()
-    type: Button_type = 'default';
-    @property()
-    size: Button_size_type = 'default';
-    @property()
-    disabled: string = 'allow';
-    @property()
-    icon?: string = '';
-    @property()
-    icondireciton: Button_iconDirection = 'before';
-    @property()
-    shape: Button_shape = 'round';
     @property({ type: Boolean })
     loading: boolean = false;
     @property({ type: String })
@@ -52,6 +39,7 @@ export class ButtonComponent extends LitElement implements CButton {
     // Render the UI as a function of component state
     render() {
         return html` <button class=${classname('button')}>
+            <slot name="icon"></slot>
             ${getValue(
                 this.loading,
                 true,

@@ -12,10 +12,6 @@ module.exports = merge(template, {
         filename: '[name].js',
         path: path.resolve(__dirname, '../test/dist'),
         clean: true,
-        library: {
-            name: 'xtu-ui',
-            type: 'umd',
-        },
     },
     optimization: {
         usedExports: true,

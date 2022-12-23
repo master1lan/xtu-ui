@@ -40,27 +40,11 @@
     #dark-mode-set(@darkMaps);
 }
 
-
-//元素hover的属性定义
-#hover(@map: {}) {
-    :host(:not([disabled])) &:hover {
-        #mapToProps(@map);
-    }
-}
-
-//
-#host(@status: block, @maps: {}) {
-
-    //这里是vscode的错误
-    :host([@{status}]) {
-        #mapToProps(@maps);
-    }
-}
-
-#hostToclass(@status: block, @class: 'button', @maps: {}) {
-    :host([@{status}]) {
-        .@{class} {
-            #mapToProps(@maps);
-        }
-    }
+// 颜色转换函数
+#colorTrans(@property: color, @color: #fff, @depth: 20, @light: true) {
+    @{property}: if(
+        boolean(@light),
+        lighten(rgba(@color), @depth),
+        darken(rgba(@color), @depth)
+    );
 }

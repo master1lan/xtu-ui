@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         :root {
-            /* --button-color: red; */
+            /* 在这里放入css变量可以应用到组件内部 */
+        }
+
+        body>div:not(:first-child) {
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -20,21 +24,103 @@
         <xtu-button block>
             这里测试block的按钮
         </xtu-button>
+        <xtu-button block type="primary">
+            这里测试block的按钮
+        </xtu-button>
+        <xtu-button block type="warning">
+            这里测试block的按钮
+        </xtu-button>
+        <xtu-button block shape="square">
+            这里测试block的按钮
+        </xtu-button>
+        <xtu-button block loading="true" loadinginfo="加载中">
+            这里测试block的按钮
+        </xtu-button>
     </div>
     <div>
-        <!-- 测试disabled和type -->
         <xtu-button>
             <span>这里测试内部有标签的按钮</span>
         </xtu-button>
-        <xtu-button disabled>
+        <xtu-button>
+            <span><svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                    fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                    </path>
+                </svg>这里测试内部有标签的按钮</span>
+        </xtu-button>
+        <xtu-button>
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+        </xtu-button>
+        <xtu-button>
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+            <span>这里测试内部有标签的按钮</span>
+        </xtu-button>
+    </div>
+    <div>
+        <xtu-button disabled="true">
             这里测试被禁用的按钮
         </xtu-button>
+        <xtu-button disabled="true">
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+            这里测试被禁用的按钮
+        </xtu-button>
+        <xtu-button disabled="true" icondireciton="after">
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+            这里测试被禁用的按钮
+        </xtu-button>
+        <xtu-button disabled="true" type="primary">
+            这里测试被禁用的按钮
+        </xtu-button>
+        <xtu-button disabled="false" type="primary">
+            这里测试disabled为false的按钮
+        </xtu-button>
+        <xtu-button disabled="true" type="warning">
+            这里测试被禁用的按钮
+        </xtu-button>
+    </div>
+    <div>
         <xtu-button type="primary">
             这里测试primary按钮
         </xtu-button>
+        <xtu-button type="primary" loading="true">
+            这里测试primary按钮
+        </xtu-button>
+        <xtu-button type="primary">
+            这里测试primary按钮
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+        </xtu-button>
+    </div>
+    <div>
         <xtu-button type="warning">
             这里测试warning按钮
         </xtu-button>
+    </div>
     </div>
     <div>
         <!-- 测试加载 -->
@@ -53,23 +139,29 @@
         <xtu-button shape="round">
             这里测试round按钮
         </xtu-button>
-        <xtu-button shape="circle">
-            这里测试circle按钮
+
+    </div>
+    <div>
+        <!-- 测试icon -->
+        <xtu-button>
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+            测试自定义icon
+        </xtu-button>
+        <xtu-button icondireciton="after">
+            <svg slot="icon" viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em"
+                fill="currentColor" aria-hidden="true">
+                <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                </path>
+            </svg>
+            测试自定义icon
         </xtu-button>
     </div>
-    <button onclick="changeHandler()">点击这里测试修改传入的参数</button>
-    <script>
-        let boolean_example = 0;
-        function changeHandler() {
-            boolean_example = !boolean_example;
-            Array.from(document.getElementsByTagName('xtu-button')).forEach((element) => {
-                // element.disabled = boolean_example;
-                // element.loading = !element.loading;
-                element.type = ['default', 'primary', 'success', 'danger', 'warning'].find(() => Math.random() < 0.5 ? true : false);
-            });
-        }
-
-    </script>
 </body>
 
 </html>

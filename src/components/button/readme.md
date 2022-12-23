@@ -14,7 +14,7 @@
 
 | 参数          | 说明                                                         | 类型      | 默认值    |
 | ------------- | ------------------------------------------------------------ | --------- | :-------- |
-| type          | button类型，可选值为`default`、`primary`、`success`、`danger`、`warning`五种类型 | `string`  | `default` |
+| type          | button类型，可选值为`default`、`primary`、`warning`五种类型  | `string`  | `default` |
 | size          | button尺寸，可选值为`small`、`default`、`large`3种类型       | `string`  | `default` |
 | disabled      | 禁用button                                                   | `boolean` | `false`   |
 | icon          | button的图标                                                 | `URL()`   | `none`    |
@@ -23,3 +23,6 @@
 | loading       | button加载状态                                               | `boolean` | `false`   |
 | loadinfo      | button加载文字                                               | `string`  | `loading` |
 
+## 使用逻辑
+
+* 当loading为true时，按钮显示加载文字，如有图标也显示图标。当loading被撤销时

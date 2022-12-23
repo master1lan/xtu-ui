@@ -26,7 +26,14 @@ module.exports = {
                     {
                         loader: 'css-loader',
                     },
-                    'less-loader',
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
+                                javascriptEnabled: true,
+                            },
+                        },
+                    },
                 ],
             },
         ],

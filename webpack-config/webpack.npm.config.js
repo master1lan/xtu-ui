@@ -15,10 +15,6 @@ const config = merge(template, {
         filename: 'index.js',
         path: path.resolve(__dirname, '../lib'),
         clean: true,
-        library: {
-            name: 'xtu-ui',
-            type: 'umd',
-        },
     },
     optimization: {
         usedExports: true,

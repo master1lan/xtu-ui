@@ -1,6 +1,19 @@
 @import '@utils/less/_tools';
 
+#addPresudo(@type: default, @mapsHover: {}
 
+    , @mapsActive: {}) {
+    :host(:not([disabled])[type='@{type}']) .button,
+    :host([disabled='false'][type='@{type}']) .button {
+        &:hover {
+            #mapToProps(@mapsHover);
+        }
+
+        &:active {
+            #mapToProps(@mapsActive);
+        }
+    }
+}
 
 // 按钮内部文字大小
 @button-font-size: var(--button-font-size, 14px);
@@ -11,18 +24,18 @@
 // 按钮内部左右内边距大小
 @button-hspacing: var(--button-hspacing, 15px);
 // 按钮内部边框圆角大小
-@button-border-radius: var(--button-border-radius, 8px);
-
+@button-border-radius: var(--button-border-radius, 16px);
 
 .button {
     box-sizing: border-box;
-    display: inline-block;
-    position: relative;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     white-space: nowrap;
     background-image: none;
     outline: none;
     word-spacing: 0px;
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     border: none;
     cursor: pointer;
     width: 100%;
@@ -33,34 +46,77 @@
     border: 1px solid transparent;
     border-radius: @button-border-radius;
 
+    ::slotted([slot='icon']) {
+        order: 0;
+    }
 }
-
 
 :host {
     display: inline-block;
 }
 
-#host(block, {
+// 块级按钮
+:host([block]) {
     display: block;
-});
+}
 
-#hostToclass(disabled, button, {
+// 禁用按钮
+:host([disabled='true']) .button {
     cursor: not-allowed;
-});
+}
 
-:host( :not([type])),
-:host([type="default"]) {
+// 默认按钮
+:host(:not([type])),
+:host([type='default']) {
     .button {
         border-color: #d9d9d9;
     }
 }
 
-#hostToclass(~(type="primary"), button, {
-    color:#fff;
+// primary按钮
+:host([type='primary']) .button {
+    color: #fff;
     background-color: #1677ff;
+}
+
+#addPresudo('primary', {
+    #colorTrans(background-color, #1677ff, 10, true);
+}
+
+, {
+#colorTrans(background-color, #1677ff, 10, false);
 });
 
-#hostToclass(~(type="warning"), button, {
+// warning按钮
+:host([type='warning']) .button {
     background-color: #ff4d4f;
-    color:#fff;
+    color: #fff;
+}
+
+#addPresudo('warning', {
+    #colorTrans(background-color, #ff4d4f, 10, true);
+}
+
+, {
+#colorTrans(background-color, #ff4d4f, 10, false);
 });
+
+//square
+:host([shape='square']) .button {
+    border-radius: 0;
+}
+
+//round
+:host([shape='round']) .button {
+    border-radius: calc(@button-border-radius / 2);
+}
+
+//loading
+:host([loading='true']) .button {
+    cursor: not-allowed;
+}
+
+//icon
+:host([icondireciton='after']) .button ::slotted([slot='icon']) {
+    order: 2;
+}
